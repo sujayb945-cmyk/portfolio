@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sujay B | Portfolio</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            background: #f4f6f9;
+            scroll-behavior: smooth; /* Smooth scrolling */
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: #111;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s, text-decoration 0.3s;
+        }
+
+        nav a:hover {
+            color: #00bfff;
+        }
+
+        nav a.active {
+            color: #00bfff;
+            text-decoration: underline;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1f1f1f, #3a3a3a);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 30px;
+            margin: 30px auto;
+            background: white;
+            width: 90%;
+            max-width: 900px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            opacity: 0;               /* For fade-in animation */
+            transform: translateY(30px);
+        }
+
+        section:hover {
+            transform: scale(1.02);
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        h2 {
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        /* Skills */
+        .skill {
+            margin: 10px 0;
+        }
+
+        .skill-bar {
+            background: #ddd;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            height: 10px;
+            background: #007bff;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin-top: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Project Styling */
+        .project {
+            margin-top: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+
+        .project button.delete-btn {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 5px;
+            margin-top: 8px;
+            cursor: pointer;
+        }
+        .project button.delete-btn:hover {
+            background-color: #cc0000;
+        }
+
+        /* Animation for newly added project */
+        .project.added {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideFadeIn 0.6s forwards;
+        }
+
+        @keyframes slideFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #111;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav>
+    <a href="#education">Education</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<!-- Header -->
+<header>
+    <h1>Sujay B</h1>
+    <p>Email: sujayb.23ds@saividya.ac.in</p>
+    <p>Phone Number: 7349615335</p>
+    <p>University Seat Number: 1VA23CD100</p>
+</header>
+
+<!-- Education -->
+<section id="education">
+    <h2>Education</h2>
+    <p><strong>Degree:</strong> Bachelor of Engineering in Computer Science</p>
+    <p><strong>University:</strong> Visvesvaraya Technological University</p>
+    <p><strong>College:</strong> Sai Vidya Institute Of Technology</p>
+    <p><strong>CGPA:</strong> 6.77</p>
+</section>
+
+<!-- Projects --> 
+<section id="projects">
+    <h2>Projects</h2>
+
+    <input type="text" id="projectTitle" placeholder="Project Title">
+    <textarea id="projectDesc" placeholder="Project Description"></textarea>
+    <button onclick="addProject()">+ Add Project</button>
+
+    <div id="projectList">
+
+        <div class="project">
+            <h3>AI Civic Reporter</h3>
+            <p>
+                AI Civic Reporter is a web-based application that allows citizens to report civic issues 
+                such as potholes, garbage problems, and water leakage. The system uses basic AI concepts 
+                to categorize complaints and forward them to the appropriate authorities. 
+                The project was developed using HTML, CSS, JavaScript and basic Machine Learning concepts.
+            </p>
+            <button class="delete-btn" onclick="this.parentElement.remove()">Delete</button>
+        </div>	
+
+        <div class="project">
+            <h3>Personal Portfolio Website</h3>
+            <p>
+                A responsive personal portfolio website developed using HTML, CSS, and JavaScript. 
+                The website includes sections like Education, Projects, Skills and Contact Form. 
+                It allows users to dynamically add and delete projects and provides a form 
+                for visitors to send messages.
+            </p>
+            <button class="delete-btn" onclick="this.parentElement.remove()">Delete</button>
+        </div>
+
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills">
+    <h2>Skills</h2>
+
+    <div class="skill">
+        <p>HTML</p>
+        <div class="skill-bar">
+            <div class="skill-level" style="width: 85%;"></div>
+        </div>
+    </div>
+
+    <div class="skill">
+        <p>CSS</p>
+        <div class="skill-bar">
+            <div class="skill-level" style="width: 80%;"></div>
+        </div>
+    </div>
+
+    <div class="skill">
+        <p>JavaScript</p>
+        <div class="skill-bar">
+            <div class="skill-level" style="width: 70%;"></div>
+        </div>
+    </div>
+
+</section>
+
+<!-- Contact -->
+<section id="contact">
+    <h2>Contact Me</h2>
+    <p>If you find my portfolio interesting, feel free to reach out!</p>
+
+    <form onsubmit="showMessage(); return false;">
+        <label>Name:</label>
+        <input type="text" required>
+
+        <label>Email:</label>
+        <input type="email" required>
+
+        <label>Message:</label>
+        <textarea required></textarea>
+
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<footer>
+    © 2026 Sujay B | Portfolio
+</footer>
+
+<script>
+function addProject() {
+    var title = document.getElementById("projectTitle").value.trim();
+    var desc = document.getElementById("projectDesc").value.trim();
+
+    if(title === "" || desc === "") {
+        alert("Please enter project details");
+        return;
+    }
+
+    var div = document.createElement("div");
+    div.className = "project added"; // add animation class
+    div.innerHTML = `
+        <h3>${title}</h3>
+        <p>${desc}</p>
+        <button class="delete-btn" onclick="this.parentElement.remove()">Delete</button>
+    `;
+
+    document.getElementById("projectList").appendChild(div);
+
+    // Remove 'added' class after animation to allow future re-add animations
+    setTimeout(() => div.classList.remove('added'), 600);
+
+    document.getElementById("projectTitle").value = "";
+    document.getElementById("projectDesc").value = "";
+}
+
+function showMessage() {
+    alert("Thank you! Your message has been received.");
+}
+
+// Highlight nav links based on scroll position
+window.addEventListener('scroll', function() {
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('nav a');
+
+    let currentSection = '';
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 60; 
+        const sectionHeight = section.offsetHeight;
+        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+            currentSection = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + currentSection) {
+            link.classList.add('active');
+        }
+    });
+});
+
+// Fade-in sections when they enter viewport
+function revealSections() {
+    const sections = document.querySelectorAll('section');
+    const triggerBottom = window.innerHeight * 0.85;
+
+    sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if(sectionTop < triggerBottom) {
+            section.classList.add('visible');
+        }
+    });
+}
+
+// Run on scroll and on page load
+window.addEventListener('scroll', revealSections);
+window.addEventListener('load', revealSections);
+</script>
+
+</body>
+</html>
